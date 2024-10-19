@@ -35,7 +35,7 @@ CREATE TABLE `agent` (
   `a_totalhit` int(11) DEFAULT NULL,
   UNIQUE KEY `a_1` (`a_name`),
   KEY `a_id` (`a_id`)
-) ENGINE=TokuDB AUTO_INCREMENT=5798034035 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=TokuDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,26 +50,7 @@ CREATE TABLE `domain` (
   `d_name` varchar(100) DEFAULT NULL,
   UNIQUE KEY `d_1` (`d_name`),
   KEY `d_id` (`d_id`)
-) ENGINE=TokuDB AUTO_INCREMENT=9132645 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `emailip`
---
-
-DROP TABLE IF EXISTS `emailip`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `emailip` (
-  `m_id` int(11) NOT NULL AUTO_INCREMENT,
-  `m_name` varchar(50) DEFAULT NULL,
-  `m_cnt` int(11) DEFAULT NULL,
-  `m_date` date DEFAULT NULL,
-  `m_whitelist` int(11) DEFAULT 0,
-  `m_reverse` varchar(128) DEFAULT NULL,
-  UNIQUE KEY `e_1` (`m_name`),
-  KEY `m_id` (`m_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=TokuDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +65,7 @@ CREATE TABLE `exturl` (
   `e_name` varchar(255) DEFAULT NULL,
   UNIQUE KEY `e_1` (`e_name`),
   KEY `e_id` (`e_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3809026477 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=TokuDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +77,7 @@ DROP TABLE IF EXISTS `hits`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hits` (
   `h_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `h_a_id` int(11) DEFAULT NULL,
+  `h_a_id` bigint(20) DEFAULT NULL,
   `h_ccode` varchar(8) DEFAULT NULL,
   `h_prox` tinyint(4) DEFAULT NULL,
   `h_mode` varchar(8) DEFAULT NULL,
@@ -111,7 +92,7 @@ CREATE TABLE `hits` (
   KEY `h_2` (`h_u_id`,`h_status`,`h_ts`),
   KEY `h_3` (`h_mode`,`h_status`,`h_ts`),
   KEY `h_4` (`h_e_id`,`h_status`,`h_ts`)
-) ENGINE=TokuDB AUTO_INCREMENT=6066180580 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=TokuDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +105,7 @@ DROP TABLE IF EXISTS `ip`;
 CREATE TABLE `ip` (
   `i_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `i_name` varchar(50) DEFAULT NULL,
-  `i_agent` int(11) DEFAULT NULL,
+  `i_agent` bigint(20) DEFAULT NULL,
   `i_year` smallint(6) DEFAULT NULL,
   `i_month` tinyint(4) DEFAULT NULL,
   `i_count` int(11) DEFAULT 0,
@@ -132,7 +113,7 @@ CREATE TABLE `ip` (
   `i_proxy` tinyint(4) DEFAULT 0,
   UNIQUE KEY `i_1` (`i_name`,`i_agent`,`i_year`,`i_month`),
   KEY `i_id` (`i_id`)
-) ENGINE=TokuDB AUTO_INCREMENT=3640825871 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=TokuDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +129,7 @@ CREATE TABLE `url` (
   `u_extension` varchar(16) DEFAULT NULL,
   UNIQUE KEY `u_1` (`u_name`),
   KEY `u_id` (`u_id`)
-) ENGINE=TokuDB AUTO_INCREMENT=5828952824 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=TokuDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 

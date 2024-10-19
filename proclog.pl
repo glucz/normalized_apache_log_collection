@@ -7,9 +7,9 @@ my $agentinfo_database="FILL_OUT";
 my $agentinfo_username="FILL_OUT";
 my $agentinfo_password="FILL_OUT";
 
-my $ip2location_database="FILL_OUT";
-my $ip2location_username="FILL_OUT";
-my $ip2location_password="FILL_OUT";
+my $iplocation_database="FILL_OUT";
+my $iplocation_username="FILL_OUT";
+my $iplocation_password="FILL_OUT";
 
 %months = ('Jan',0,'Feb',1,'Mar',2,'Apr',3,'May',4,'Jun',5,'Jul',6,'Aug',7,'Sep',8,'Oct',9,'Nov',10,'Dec',11);
 
@@ -19,17 +19,17 @@ $ctime=time();
 # Create database connection to the agentinfo database
 $iploc = DBI->connect('DBI:mysql:'.$agentinfo_database.';host=localhost',$agentinfo_username,$agentinfo_password);
 
-# Create database connection to the ip2location database
-# Database may be obtained from https://www.ip2location.com/
-# Queries may need to be adjusted to subscription type or omitted alltogether
-$urlag = DBI->connect('DBI:mysql:'.$ip2location_database.';host=localhost',$ip2location_username,$ip2location_password);
+# Create database connection to the iplocation database
+# Queries may need to be adjusted to your your specific database or omitted alltogether
+
+$urlag = DBI->connect('DBI:mysql:'.$iplocation_database.';host=localhost',$iplocation_username,$iplocation_password);
 
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
 $year = $year+1900;
 
 # IPlocation related queries
-my $sth = $iploc->prepare("select country_code FROM ip2location_db5 WHERE ip_from<=? order by ip_from desc limit 1");
-my $stj = $iploc->prepare("select country_code FROM ip2proxy_px3 WHERE ip_from<=? and ip_to>=? limit 1");
+my $sth = $iploc->prepare("select country_code FROM iplocation WHERE ip_from<=? order by ip_from desc limit 1");
+my $stj = $iploc->prepare("select country_code FROM ipproxy WHERE ip_from<=? and ip_to>=? limit 1");
 
 # Data storage queries
 my $i_surl=$urlag->prepare("insert into url (u_name) values (?)");
@@ -88,7 +88,7 @@ if (1) # Placeholder for filtering the file name
             {$eurl=reverse $1;} else {$eurl="@"};
             if ($eurl=~/^(.*?)\?/) {$eurl=$1;}
 
-            #### Uncomment to debig
+            #### Uncomment to debug
             #print "URL  : ".$url."\n";
             #print "EURL : ".$eurl."\n";
             #print "CODE : ".$code."\n";
@@ -126,10 +126,12 @@ if (1) # Placeholder for filtering the file name
          else
          {
             print "NOMATCH\n";
+            #### Uncomment to debug
             #exit;
          }
       }
       print $fle."\n";
+      #### Uncomment to debug
       #exit;
    }
 }

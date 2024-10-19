@@ -36,6 +36,6 @@ This will make the data much more compact and ready for systematic analysis
 | `agentinfo_database`   | Name of the log collection database                    |
 | `agentinfo_username`   | MySQL username for the log collection database         |
 | `agentinfo_password`   | MySQL password for the log collection database         |
-| `ip2location_database` | Name of IP2Location geolocation database               |
-| `ip2location_username` | MySQL username for the IP2Location collection database |
-| `p2location_password`  | MySQL password for the IP2Location collection database |
+| `iplocation_database`  | Name of IPLocation geolocation database                |
+| `iplocation_username`  | MySQL username for the IPLocation collection database  |
+| `iplocation_password`  | MySQL password for the IPLocation collection database  |
