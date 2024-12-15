@@ -117,13 +117,13 @@ CREATE TABLE `ip` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `url`
+-- Table structure for table `files`
 --
 
-DROP TABLE IF EXISTS `url`;
+DROP TABLE IF EXISTS `files`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `url` (
+CREATE TABLE `files` (
   `u_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `u_name` varchar(255) DEFAULT NULL,
   `u_extension` varchar(16) DEFAULT NULL,

@@ -32,10 +32,10 @@ my $sth = $iploc->prepare("select country_code FROM iplocation WHERE ip_from<=? 
 my $stj = $iploc->prepare("select country_code FROM ipproxy WHERE ip_from<=? and ip_to>=? limit 1");
 
 # Data storage queries
-my $i_surl=$urlag->prepare("insert into url (u_name) values (?)");
+my $i_surl=$urlag->prepare("insert into files (u_name) values (?)");
 my $i_eurl=$urlag->prepare("insert into exturl (e_name) values (?)");
 my $i_sage=$urlag->prepare("insert into agent (a_name) values (?)");
-my $s_surl=$urlag->prepare("select u_id from url where u_name=?");
+my $s_surl=$urlag->prepare("select u_id from files where u_name=?");
 my $s_eurl=$urlag->prepare("select e_id from exturl where e_name=?");
 my $s_sage=$urlag->prepare("select a_id from agent where a_name=?");
 my $i_hits=$urlag->prepare("insert into hits (h_a_id,h_u_id,h_ccode,h_prox,h_status,h_i_id,h_d_id,h_ts,h_mode,h_e_id) values (?,?,?,?,?,?,?,now(),?,?)");
